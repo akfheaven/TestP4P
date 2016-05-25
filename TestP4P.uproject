@@ -1,0 +1,16 @@
+{
+	"FileVersion": 3,
+	"EngineAssociation": "{8A8D6D1D-4FB1-D636-F70D-2B96B466BE9E}",
+	"Category": "",
+	"Description": "",
+	"Modules": [
+		{
+			"Name": "TestP4P",
+			"Type": "Runtime",
+			"LoadingPhase": "Default",
+			"AdditionalDependencies": [
+				"Engine"
+			]
+		}
+	]
+}
