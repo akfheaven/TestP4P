@@ -59,7 +59,7 @@ void AP4PActor::P4pTest_OnStep(FVector oa, FVector ob, FVector oc, FVector od, F
 
 float AP4PActor::distFunc(float a1, float a2, float d12, float t12)
 {
-	long double aa1 = a1, aa2 = a2, dd12 = d12, tt12 = t12;
+	double aa1 = a1, aa2 = a2, dd12 = d12, tt12 = t12;
 	return aa1 * aa1 - 2 * aa1 * aa2 * tt12 + aa2 * aa2 - dd12 * dd12;
 }
 
@@ -108,7 +108,7 @@ FVector4 AP4PActor::jfFunc(FVector4 A, float ts[4], float ds[4])
 	}
 	for (int i = 0; i < 4; i++) {
 		fres[i] = 0;
-		long double temp = 0;
+		double temp = 0;
 		for (int j = 0; j < 4; j++) {
 			temp += Jinv.M[i][j] * fv[j];
 		}
@@ -122,7 +122,7 @@ FVector4 AP4PActor::jfFunc(FVector4 A, float ts[4], float ds[4])
 
 float AP4PActor::jfHelpFunc(float a1, float t12, float a2)
 {
-	long double aa1 = a1, tt12 = t12, aa2 = a2;
+	double aa1 = a1, tt12 = t12, aa2 = a2;
 	return 2 * aa1 - 2 * tt12 * aa2;
 }
 
