@@ -21,7 +21,7 @@ public:
 	virtual void Tick( float DeltaSeconds ) override;
 
 	UFUNCTION(BlueprintCallable, Category = "P4PTest")
-	void P4pTest_OnStep(FVector oa, FVector ob, FVector oc, FVector od, FVector4 A1, FVector4& outA1);
+	void P4pTest_OnStep(FVector oa, FVector ob, FVector oc, FVector od, FVector4 A1, FVector4& outA1, FVector4 &outF);
 
 	float distFunc(float a1, float a2, float d12, float t12);
 

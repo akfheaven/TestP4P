@@ -27,15 +27,13 @@ void AP4PActor::Tick( float DeltaTime )
 
 }
 
-void AP4PActor::P4pTest_OnStep(FVector oa, FVector ob, FVector oc, FVector od, FVector4 A1, FVector4& outA1)
+void AP4PActor::P4pTest_OnStep(FVector oa, FVector ob, FVector oc, FVector od, FVector4 A1, FVector4& outA1, FVector4 &outF)
 {
 	GLog->Log(TEXT("Log input A1:"));
 	for (int i = 0; i < 4; i++) {
 		GLog->Log(FString::SanitizeFloat(A1[i]));
 	}
 	
-
-
 	FVector e1 = oa.GetSafeNormal();
 	FVector e2 = ob.GetSafeNormal();
 	FVector e3 = oc.GetSafeNormal();
@@ -100,11 +98,6 @@ FVector4 AP4PActor::jfFunc(FVector4 A, float ts[4], float ds[4])
 	fv[2] = distFunc(A[2], A[3], ds[2], ts[2]);
 	fv[3] = distFunc(A[0], A[3], ds[3], ts[3]);
 
-	GLog->Log(TEXT("Log input fv:"));
-	for (int i = 0; i < 4; i++) {
-		GLog->Log(FString::SanitizeFloat(fv[i]));
-	}
-
 	Jinv = J.Inverse();
 	GLog->Log(TEXT("Log input Jinv:"));
 	for (int i = 0; i < 4; i++) {
@@ -119,7 +112,7 @@ FVector4 AP4PActor::jfFunc(FVector4 A, float ts[4], float ds[4])
 		for (int j = 0; j < 4; j++) {
 			temp += Jinv.M[i][j] * fv[j];
 		}
-		fres[i] = temp;
+		fres[i] =  temp;
 		GLog->Log(FString::SanitizeFloat(fres[i]));
 	}
 
@@ -129,8 +122,8 @@ FVector4 AP4PActor::jfFunc(FVector4 A, float ts[4], float ds[4])
 
 float AP4PActor::jfHelpFunc(float a1, float t12, float a2)
 {
-	long double t1 = a1, t2 = t12, t3 = a2;
-	return 2 * t1 - 2 * t2 * t3;
+	long double aa1 = a1, tt12 = t12, aa2 = a2;
+	return 2 * aa1 - 2 * tt12 * aa2;
 }
 
 void getInversMatrix(FMatrix src, FMatrix &res) {
