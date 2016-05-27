@@ -1,6 +1,6 @@
 /*
 !.gitignore
-!Source/*
-!Content/*
+!Source/
+!Content/
 !*.uproject
-!Config/*
+!Config/
