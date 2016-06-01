@@ -1,3 +1,5 @@
-./
-!*.cpp
+/*
+!/OpenCVPnPTest/
+/OpenCVPnPTest/*
+!/OpenCVPnPTest/*.cpp
 !.gitignore
