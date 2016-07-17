@@ -26,8 +26,10 @@ public:
 	float distFunc(float a1, float a2, float d12, float t12);
 
 	FVector4 jfFunc(FVector4 A, float ts[4], float ds[4]);
-
+	
 	float jfHelpFunc(float a1, float t12, float a2);
 
 	void getInversMatrix(FMatrix src, FMatrix &res);
+
+	void testPnP();
 };
