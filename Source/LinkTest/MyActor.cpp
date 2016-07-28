@@ -29,20 +29,29 @@ void AMyActor::Tick( float DeltaTime )
 
 }
 
-FTransform AMyActor::MySolvePnP(const TArray<float>& aop, const TArray<float>&  aip){
+FTransform AMyActor::MySolvePnP(const TArray<FVector>& aop, const TArray<FVector2D>&  aip){
+	int32 arraySize = aop.Num();
+	FVector bb = aop[0];
 	Mat op = (Mat_<Point3d>(1, 4) <<
-		Point3d(0, 0, 0),
-		Point3d(1, 0, 0),
-		Point3d(0, 2, 0),
-		Point3d(0, 0, 3)
+		Point3d(aop[0].X, aop[0].Y, aop[0].Z),
+		Point3d(aop[1].X, aop[1].Y, aop[1].Z),
+		Point3d(aop[2].X, aop[2].Y, aop[2].Z),
+		Point3d(aop[3].Y, aop[3].Y, aop[3].Z)
 		);
 
 
+	//Mat ip = (Mat_<Point2d>(1, 4) <<
+	//	Point2d(-0.2, 0),
+	//	Point2d((sqrt(2.0) / 2 - 1) / (5 - sqrt(2.0) / 2), 0),
+	//	Point2d(-0.2, 0.4),
+	//	Point2d((3 * sqrt(2.0) / 2 - 1) / (5 + 3 * sqrt(2.0) / 2), 0)
+	//	);
+
 	Mat ip = (Mat_<Point2d>(1, 4) <<
-		Point2d(-0.2, 0),
-		Point2d((sqrt(2.0) / 2 - 1) / (5 - sqrt(2.0) / 2), 0),
-		Point2d(-0.2, 0.4),
-		Point2d((3 * sqrt(2.0) / 2 - 1) / (5 + 3 * sqrt(2.0) / 2), 0)
+		Point2d(aip[0].X, aip[0].Y),
+		Point2d(aip[1].X, aip[1].Y),
+		Point2d(aip[2].X, aip[2].Y),
+		Point2d(aip[3].X, aip[3].Y)
 		);
 
 	Matx33d camMatrix(

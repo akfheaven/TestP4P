@@ -21,6 +21,6 @@ public:
 	virtual void Tick(float DeltaSeconds) override;
 
 	UFUNCTION(BlueprintCallable, Category = "Analytics")
-	FTransform MySolvePnP(const TArray<float>&  aop, const TArray<float>&  aip);
+	FTransform MySolvePnP(const TArray<FVector>& aop, const TArray<FVector2D>&  aip);
 	
 };
