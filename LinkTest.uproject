@@ -1,0 +1,16 @@
+{
+	"FileVersion": 3,
+	"EngineAssociation": "{29DB1C84-47AC-6C53-9EA5-C0ADF90F22A2}",
+	"Category": "",
+	"Description": "",
+	"Modules": [
+		{
+			"Name": "LinkTest",
+			"Type": "Runtime",
+			"LoadingPhase": "Default",
+			"AdditionalDependencies": [
+				"Engine"
+			]
+		}
+	]
+}
