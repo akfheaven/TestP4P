@@ -4,6 +4,7 @@
 #include "MyActor.h"
 #include "opencv2/calib3d/calib3d.hpp"
 #include <iostream>
+#include "ReadIMU.h"
 using namespace cv;
 using namespace std;
 
@@ -78,5 +79,17 @@ FTransform AMyActor::MySolvePnP(const TArray<FVector>& aop, const TArray<FVector
 	mat.M[2][0] = _r[6]; mat.M[2][1] = _r[7]; mat.M[2][2] = _r[8];
 	aa.SetRotation(mat.ToQuat().Inverse());
 	return aa;
+}
+
+void AMyActor::initIMU() {
+	initPort();
+}
+
+void AMyActor::getIMUData(float &pitch, float &roll) {
+	getData(pitch, roll);
+}
+
+void AMyActor::closeIMU() {
+	close();
 }
 

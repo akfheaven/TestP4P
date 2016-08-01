@@ -22,5 +22,15 @@ public:
 
 	UFUNCTION(BlueprintCallable, Category = "Analytics")
 	FTransform MySolvePnP(const TArray<FVector>& aop, const TArray<FVector2D>&  aip);
+
+
+	UFUNCTION(BlueprintCallable, Category = "Analytics")
+	void getIMUData(float &pitch, float &roll);
+
+	UFUNCTION(BlueprintCallable, Category = "Analytics")
+	void initIMU();
+
+	UFUNCTION(BlueprintCallable, Category = "Analytics")
+	void closeIMU();
 	
 };

@@ -15,6 +15,12 @@ public class LinkTest : ModuleRules
         get { return "E:/CUDA/Toolkit"; }
 
     }
+
+    private string READIMUDIR
+    {
+        get { return "E:/UEProjs/49release/LinkTest/Source/LinkTest/ReadIMU"; }
+
+    }
     public LinkTest(TargetInfo Target)
 	{
 		PublicDependencyModuleNames.AddRange(new string[] { "Core", "CoreUObject", "Engine", "InputCore" });
@@ -25,6 +31,8 @@ public class LinkTest : ModuleRules
         PublicIncludePaths.AddRange(new string[] {
                Path.Combine(OpenCVDIR, "../../include/"),   
               // Path.Combine(CUDADIR, "include/")
+              Path.Combine(READIMUDIR, "include"),
+               Path.Combine(READIMUDIR)
         });
 
 
@@ -36,6 +44,8 @@ public class LinkTest : ModuleRules
         PublicAdditionalLibraries.Add(Path.Combine("D:/OpenCV/opencv-2.4.13/Buildx64Dy/lib/Release", "opencv_calib3d2413.lib"));
         PublicAdditionalLibraries.Add(Path.Combine("D:/OpenCV/opencv-2.4.13/Buildx64Dy/lib/Release", "opencv_imgproc2413.lib"));
         PublicAdditionalLibraries.Add(Path.Combine("D:/OpenCV/opencv-2.4.13/Buildx64Dy/3rdparty/lib/Release", "zlib.lib"));
+        PublicAdditionalLibraries.Add(Path.Combine(READIMUDIR, "ReadIMU.lib"));
+
         //PublicAdditionalLibraries.Add(Path.Combine(CUDADIR, "lib/x64", "cudart_static.lib"));
 
         // Uncomment if you are using Slate UI
